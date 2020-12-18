@@ -1,12 +1,7 @@
 package collection;
 
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ConcurrentSkipListMap;
-import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.*;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class Concurrent {
@@ -34,5 +29,28 @@ public class Concurrent {
         rainForestAnimalDiet.entrySet()
                 .stream()
                 .forEach((e) -> System.out.println(e.getKey() + "-" + e.getValue())); // koala-bamboo
+
+        List<Integer> favNumbers =  new CopyOnWriteArrayList<>(List.of(4,3,42));
+        for(var n: favNumbers) {
+            System.out.print(n + " ");
+            favNumbers.add(9);
+        }
+        System.out.println();
+        System.out.println("List: " +favNumbers + ",Size: " + favNumbers.size());
+
+        /*favNumbers =  new ArrayList(List.of(4,3,42));
+        for(var n: favNumbers) {
+            System.out.print(n + " ");
+            favNumbers.add(9);//ConcurrentModificationException
+        }*/
+
+        Set<Character> favLetters = new CopyOnWriteArraySet<>(List.of('a','t'));
+        for(char c: favLetters) {
+            System.out.print(c+" ");
+            favLetters.add('s');
+        }
+        System.out.println();
+        System.out.println("Set: " + favLetters + ",Size: "+ favLetters.size());
+
     }
 }
