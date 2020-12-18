@@ -1,7 +1,6 @@
 package collection;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -17,6 +16,7 @@ public class DeleteWhileLooping {
         }
         */
 
+        //ConcurrentHashMap
         var foodData = new ConcurrentHashMap<String, Integer>();
         foodData.put("penguin", 1);
         foodData.put("flamingo", 2);
@@ -43,5 +43,13 @@ public class DeleteWhileLooping {
             iterator.remove();
         }
         System.out.print(birds.size()); // 0
+
+        //Synchronized Collections Methods
+        var foodData1 = new HashMap<String, Object>();
+        foodData1.put("penguin", 1);
+        foodData1.put("flamingo", 2);
+        var synFoodData = Collections.synchronizedMap(foodData1);
+        for(String key: synFoodData.keySet())
+            synFoodData.remove(key);
     }
 }
