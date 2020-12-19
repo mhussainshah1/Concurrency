@@ -23,7 +23,7 @@ public class AddData {
             }
         }
         if (service != null) {
-            service.awaitTermination(1, TimeUnit.MINUTES);
+            System.out.println(service.awaitTermination(1, TimeUnit.MINUTES));
 
             // Check whether all tasks are finished
             if (service.isTerminated())
