@@ -10,8 +10,8 @@ package exam;
  * <p>
  * D) Threads in executorService execute for each of the two threads.
  * <p>
- * [0, 1, 2, 3, 4][0, 1, 2, 3, 4]
- * Answer D
+ *
+ * Answer A
  */
 
 import java.util.List;

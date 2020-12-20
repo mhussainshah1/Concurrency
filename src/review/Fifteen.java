@@ -12,6 +12,6 @@ public class Fifteen {
                         .flatMap(s -> s)
                         .collect(Collectors.groupingByConcurrent(
                                 s -> !s.startsWith("p")));
-        System.out.println(data.get(false).size()+ " " + data.get(true).size());
+        System.out.println(data + "\n" + data.get(false).size()+ " " + data.get(true).size());
     }
 }
